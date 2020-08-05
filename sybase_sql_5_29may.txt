@@ -1,0 +1,45 @@
+Stored Procedures
+recurring functionality is used as stored procedures
+It can take parameters
+Stored Procedure and Function
+Function must return a value
+Stored Procedure may or may not return a value and may or may not take input value
+Function can be called from a procedure  not vice versa
+Procedure allows Select and all DML Function allows only Select
+Procedure can be used in Select but Function cannot be embedded in a Select
+As per sybase you cannot drop a stored procedure
+If you want everyone to use a stored procedure then grant access to everyone
+
+--STORED PROCDURE input empid and should return first name
+--select * from employees
+--IF EXISTS(select 1 from sysobjects where name='sp_EMP_NAME' and type='P')
+--BEGIN
+--        DROP PROCEDURE sp_EMP_NAME
+--END
+
+--CREATE PROCEDURE sp_EMP_NAME(@employeeid int)
+--AS
+--BEGIN
+--    Declare @firstname varchar(30), @lastname varchar(30)
+
+--    select @firstname=first_name, @lastname=last_name
+--    from employees
+--    where employee_id=@employeeid
+--END
+
+--GRANT EXEC ON sp_EMP_NAME TO dbo
+
+
+--execute sp_EMP_NAME (100)
+--drop procedure sp_EMP_NAME
+
+
+
+
+
+--CREATE PROCEDURE sp_my_storedproc
+--AS
+--select * from departments
+--GO;
+
+--exec sp_my_storedproc

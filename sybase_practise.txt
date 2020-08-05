@@ -1,0 +1,49 @@
+--sp_tables;
+--sp_databases;
+--select @@servername
+--select @@version
+DROP DATABASE testdb
+
+select distinct salary from employees order by salary desc;
+select min(salary) from (select distinct salary from employees order by salary desc) where rownum<=2;
+
+select * from employees order by salary desc;
+select distinct salary from employees order by salary desc;
+
+select max(salary) from employees where salary < (select max(salary) from employees);
+select max(salary) from employees where salary < (select max(salary) from employees where salary < (select max(salary) from employees));
+select * from employees e1 where rowid <> (select max(rowid) from employees e2 where e1.employee_id=e2.employee_id);
+
+select count(*) from employees
+select avg(salary) from employees
+select min(salary) from employees
+select max(salary) from employees
+select sum(salary) from employees
+
+
+SELECT TOP 1 salary
+FROM
+(
+SELECT TOP 2 salary
+FROM employees
+ORDER BY salary DESC
+)
+AS emp 
+ORDER BY salary ASC
+
+
+SELECT TOP 1 salary
+FROM
+(
+SELECT TOP 2 salary
+FROM employees
+)
+AS emp
+ORDER BY salary ASC
+
+SELECT *
+FROM employees Emp1
+WHERE 2 = (
+SELECT COUNT(DISTINCT(Emp2.salary))
+FROM employees Emp2
+WHERE Emp2.salary > Emp1.salary)

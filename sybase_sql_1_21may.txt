@@ -1,0 +1,31 @@
+C:\SAP\DBISQL-16_0\bin\dbisql
+--Sybase is Case Sensitive
+sp_databases;
+sp_tables;
+select * from sysobjects;
+use master;
+
+CREATE TABLE city(
+city_id INT,
+city_name VARCHAR(20)
+);
+
+INSERT INTO city VALUES(1,'Delhi')
+INSERT INTO city VALUES(2,'Mumbai')
+INSERT INTO city VALUES(3,'Bangalore')
+
+SELECT * FROM city
+
+DELETE FROM city where city_id=2;
+
+UPDATE city SET city_name='BANGALORE' where city_id=3;
+
+--TRUNCATE V/S DELETE
+TRUNCATE TABLE city
+
+SELECT * FROM city;
+
+
+----------------------------------
+USE master;
+CREATE DATABASE testdb;

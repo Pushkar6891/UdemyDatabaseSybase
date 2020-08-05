@@ -1,0 +1,88 @@
+GROUP BY
+
+select * from employees where department_id=9
+
+--how many employees in each department
+select department_id, count(*) as employee_count from employees group by department_id order by department_id;
+
+--what ever columns are present in select is also included in group by except the compute columns
+select e.department_id, d.department_name, count(*) 
+from employees e, departments d 
+where e.department_id=d.department_id 
+group by e.department_id, d.department_name 
+order by d.department_name desc;
+======================================================================================================================================================
+GRANT 
+grant select on employees to public
+
+REVOKE
+======================================================================================================================================================
+SYSTEM TABLES
+--list of system tables
+--select * from sysobjects
+--select * from sysobjects where name='regions'
+
+--select * from syscomments
+--select * from syslogs
+--select * from regions
+
+--list of columns
+--select * from syscolumns where id = 1538973678
+
+--list of users
+--select * from sysusers;
+
+--list of indexes
+--select * from sysindexes
+======================================================================================================================================================
+SYSTEM FUNCTIONS
+--functions in sybase
+--select host_name()
+--select datalength('Pushkar')
+
+--select * from sysusers
+select user_name(3)
+--select user_name(16384)
+--select user_name(16385)
+
+--select db_name()
+--select isnull(null,7)
+======================================================================================================================================================
+STRING FUNCTIONS
+--select ltrim('                                   Pushkar')
+--select rtrim('Pushkar                                   ')
+--select patindex('%as%','this is a asset')
+
+DATE FUNCTIONS
+--select getdate()
+--select getutcdate()
+
+MATHEMATICAL FUNCTIONS
+
+CUSTOMIZE FUNCTIONS
+1. Function 1:
+CREATE FUNCTION DoubleIt (@Input int)
+RETURNS INT
+AS
+DECLARE @Result int
+SELECT @Result = @Input * 2
+RETURN @Result
+
+SELECT dbo.DoubleIt(10)
+
+DROP FUNCTION DoubleIt
+
+2. Function 2:
+CREATE FUNCTION fullname (@firstname CHAR(30), @lastname CHAR(30))
+RETURNS CHAR(61)
+AS
+BEGIN
+    DECLARE @name CHAR(61)
+    SET @name = ltrim(rtrim(@firstname)) || ' ' || ltrim(rtrim(@lastname))
+    RETURN @name
+END
+
+SELECT dbo.fullname('Shahrukh','Khan')
+
+DROP FUNCTION fullname
+======================================================================================================================================================

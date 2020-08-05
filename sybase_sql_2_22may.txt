@@ -1,0 +1,91 @@
+ALTER TABLE city ADD pin varchar(10) NOT NULL
+ALTER TABLE city ADD location varchar(10) DEFAULT('aa')
+DELETE TABLE city
+
+DML (INSERT/UPDATE/DELETE)
+SELECT * FROM sysobjects
+# 40 records
+SELECT * FROM employees
+# 11 records
+SELECT * FROM departments
+
+# Department with Employee merge
+SELECT * 
+FROM employees, departments;
+
+SELECT * 
+FROM employees e, departments d 
+WHERE e.department_id=d.department_id; 
+
+SELECT * 
+FROM employees e, departments d 
+WHERE d.department_id=e.department_id; 
+
+#Find salary for each department
+SELECT d.department_name, sum(e.salary) 
+FROM employees e, departments d 
+WHERE d.department_id=e.department_id
+GROUP BY department_name; 
+
+# Find all department id from department table
+SELECT DISTINCT department_id FROM employees;
+
+#Wrong
+
+SELECT * FROM departments, employees WHERE department_name='Marketing' OR salary<10000;
+SELECT * FROM departments, employees WHERE department_name='Marketing' AND salary<10000;
+SELECT * FROM employees WHERE manager_id BETWEEN 100 AND 103;
+SELECT * FROM employees WHERE manager_id IN (100,103);
+SELECT * FROM employees WHERE manager_id NOT IN (100,103);
+
+# If manager id is alpha numeric
+# If I want 100 102 103
+Blank Records:
+SELECT * FROM employees WHERE manager_id = 100 AND manager_id=101;
+
+SELECT * FROM employees WHERE manager_id = 100 OR manager_id=101 OR manager_id=102;
+
+# Error
+SELECT * FROM employees WHERE manager_id IN (101);
+SELECT * FROM employees WHERE manager_id = (SELECT DISTINCT manager_id FROM employees);
+SELECT * FROM employees WHERE manager_id = (SELECT DISTINCT manager_id FROM employees WHERE manager_id=100);
+SELECT * FROM employees WHERE manager_id = (SELECT DISTINCT manager_id FROM employees WHERE first_name='Charles');
+
+SELECT *
+FROM employees e, departments d
+WHERE e.department_id=d.department_id;
+
+
+sp_columns employees;
+sp_help employees;
+
+====================================================================================================================================================================
+SET IDENTITY_INSERT employees ON
+
+INSERT INTO employees
+(
+employee_id,
+first_name,
+last_name,
+email,
+phone_number,
+hire_date,
+job_id,
+salary,
+manager_id,
+department_id
+)
+values 
+(
+2501,
+'Pushkar',
+'Chauhan',
+'pushkarchauhan91@gmail.com',
+'9826396465',
+'01/01/2020',
+66,
+7777.00,
+101,
+1);
+
+====================================================================================================================================================================

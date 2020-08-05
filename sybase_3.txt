@@ -1,0 +1,90 @@
+The log file for this session is 'C:\SAP\ASE-16_0\init\logs\log0521.001'.
+Warning: You have selected '4k' as the logical page size for the SAP Adaptive Server Enterprise. If you plan to load dump from another database, make sure this logical page size matches the size of the source database. The default logical page size in previous SAP Adaptive Server Enterprise versions was 2KB.
+Running task: update SAP Server entry in interfaces file.
+Task succeeded: update SAP Server entry in interfaces file.
+Running task: create the master device.
+Building the master device
+...Done
+Task succeeded: create the master device.
+Running task: update SAP Server entry in registry.
+Task succeeded: update SAP Server entry in registry.
+Running task: start the SAP Server.
+waiting for server 'SYB01' to boot...
+Task succeeded: start the SAP Server.
+Running task: set System Administrator's password.
+Task succeeded: set System Administrator's password.
+Running task: create the sybsystemprocs database.
+sybsystemprocs database created.
+Task succeeded: create the sybsystemprocs database.
+Running task: install system stored procedures.
+Installing system stored procedures : 10% complete...
+Installing system stored procedures : 20% complete...
+Installing system stored procedures : 30% complete...
+Installing system stored procedures : 40% complete...
+Installing system stored procedures : 50% complete...
+Installing system stored procedures : 60% complete...
+Installing system stored procedures : 70% complete...
+Installing system stored procedures : 80% complete...
+Installing system stored procedures : 90% complete...
+Installing system stored procedures : 100% complete...
+Task succeeded: install system stored procedures.
+Running task: set permissions for the 'model' database.
+Task succeeded: set permissions for the 'model' database.
+Running task: set local SAP Adaptive Server Enterprise name.
+Task succeeded: set local SAP Adaptive Server Enterprise name.
+Running task: set the XP Server for the SAP Adaptive Server Enterprise.
+Task succeeded: set the XP Server for the SAP Adaptive Server Enterprise.
+Running task: update XP Server entry in registry.
+Task succeeded: update XP Server entry in registry.
+Running task: create temporary database.
+Task succeeded: create temporary database.
+Running task: set optimization goal.
+Task succeeded: set optimization goal.
+Running task: install a character set(s).
+Installing character set 'cp850'
+Installing character set 'cp850'
+.Done
+Character set 'cp850' has been successfully installed.
+Task succeeded: install a character set(s).
+Running task: set the default character set and/or default sort order for the SAP Adaptive Server Enterprise.
+Setting the default character set to cp850
+Sort order 'bin_cp850' has already been installed.
+Character set 'cp850' is already the default.
+Sort order 'bin_cp850' is already the default.
+Task succeeded: set the default character set and/or default sort order for the SAP Adaptive Server Enterprise.
+Running task: install a language(s).
+Language 'us_english' has already been installed.
+Task succeeded: install a language(s).
+Running task: set the default language.
+Setting the default language to us_english
+Language 'us_english' is already the default.
+Task succeeded: set the default language.
+Running task: install sybsystemdb database.
+sybsystemdb database extended.
+Task succeeded: install sybsystemdb database.
+Running task: set the Backup Server for the SAP Adaptive Server Enterprise.
+Task succeeded: set the Backup Server for the SAP Adaptive Server Enterprise.
+Running task: Configure Remote Command and Control Agent for SAP ASE.
+Task succeeded: Configure Remote Command and Control Agent for SAP ASE.
+Running task: Enable SAP ASE for ASE Cockpit monitoring.
+Waiting 15 seconds for the operating system to reclaim resources before rebooting.
+waiting for server 'SYB01' to boot...
+Create technical user 'techuser' for ASE Cockpit.
+Task succeeded: Enable SAP ASE for ASE Cockpit monitoring.
+Running task: shutdown the SAP Server.
+Waiting 15 seconds for the operating system to reclaim resources before rebooting.
+Task succeeded: shutdown the SAP Server.
+Running task: Boot server as a service.
+waiting for server 'SYB01' to boot...
+waiting for server 'SYB01' to boot...
+Task succeeded: Boot server as a service.
+Configuration completed successfully.
+Exiting.
+The log file for this session is 'C:\SAP\ASE-16_0\init\logs\log0521.001'.
+
+
+Configure New SAP ASE
+Create Sample database
+Configure New backup server
+Configure New Job Scheduler
+Installation Complete

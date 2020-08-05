@@ -1,0 +1,94 @@
+/*Inner Join*/
+SELECT * 
+FROM employees e, departments d
+WHERE e.department_id=d.department_id;
+
+/*Cross Join*/ 48 * 11
+SELECT count(*) 
+FROM employees e, departments d;
+
+SELECT *
+FROM employees e, departments d;
+
+/* Left Outer Join */
+SELECT * 
+FROM employees e, departments d
+WHERE e.department_id = d.department_id;
+
+SELECT * 
+FROM employees e, departments d
+WHERE e.department_id *= d.department_id;
+
+SELECT * 
+FROM employees e, departments d
+WHERE e.department_id =* d.department_id;
+
+/* Full Outer Join */
+SELECT * 
+FROM employees e
+WHERE e.department_id 
+IN
+(
+SELECT d.department_id
+FROM departments d
+)
+
+SELECT e.*
+FROM employees e, departments d
+WHERE e.department_id = d.department_id
+UNION
+SELECT *
+FROM employees e
+WHERE e.department_id
+NOT IN 
+(
+SELECT d.department_id
+FROM departments d
+)
+
+/*Self Join*/
+SELECT e1.*, e2.first_name, e2.last_name
+FROM employees e1, employees e2
+WHERE e1.employee_id=e2.manager_id
+
+SELECT e1.*, e2.employee_id, e2.first_name, e2.last_name
+FROM employees e1, employees e2
+WHERE e1.manager_id=e2.employee_id
+
+=====================================================================================================================================================================
+Descending order of salary
+SELECT *
+FROM employees
+ORDER BY salary DESC
+
+Highest Salary
+SELECT * 
+FROM employees
+WHERE salary
+IN 
+(
+SELECT max(salary)
+FROM employees
+)
+
+Second Highest Salary
+SELECT * 
+FROM employees
+WHERE salary
+IN 
+(
+SELECT max(salary) 
+FROM employees
+WHERE salary < 
+(SELECT max(salary)
+FROM employees)
+)
+
+SELECT *
+FROM employees Emp1
+WHERE 1 = (
+SELECT COUNT(DISTINCT(Emp2.salary))
+FROM employees Emp2
+WHERE Emp2.salary > Emp1.salary)
+)
+
